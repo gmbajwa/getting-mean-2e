@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const ctrlLocations = require('../controllers/location');
+const ctrlOthers = require('../controllers/others');
+
+/* GET Locations List  page. */
+router.get('/', ctrlLocations.locationsList);
+
+/* Get about page. */
+router.get('/about', ctrlOthers.aboutUs);
 
 module.exports = router;
